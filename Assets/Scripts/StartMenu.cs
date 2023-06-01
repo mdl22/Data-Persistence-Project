@@ -9,8 +9,7 @@ using UnityEditor;
 
 public class StartMenu : MonoBehaviour
 {
-    public TMP_InputField nameInputField;
-
+    [SerializeField] TMP_InputField nameInputField;
 
     public void StartGame()
     {

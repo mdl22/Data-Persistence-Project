@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class Persistence : MonoBehaviour
 {
-    public static Persistence Instance; 
+    public static Persistence Instance { get; private set; } 
 
     public int bestScore;
     public string bestPlayer;
     public string playerName;
-
     
     private void Awake()
     {

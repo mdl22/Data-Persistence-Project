@@ -3,32 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
 
 public class MainManager : MonoBehaviour
 {
-    public Brick BrickPrefab;
-    public int LineCount = 6;
-    public Rigidbody Ball;
+    [SerializeField] Brick BrickPrefab;
+    [SerializeField] int LineCount = 6;
+    [SerializeField] Rigidbody Ball;
 
-    public Text ScoreText;
-    public GameObject GameOverText;
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI bestScoreText;
-    public TextMeshProUGUI gameOverText;
+    [SerializeField] Text ScoreText;
+    [SerializeField] Text BestScoreText;
+    [SerializeField] GameObject GameOverText;
     
-    private bool m_Started = false;
-    private int m_Points;
+    bool m_Started = false;
+    int m_Points;
     
-    private bool m_GameOver = false;
-
+    bool m_GameOver = false;
 
     public void DisplayBestScore()
     {
-        bestScoreText.text = $"Best Score : {Persistence.Instance.bestPlayer} : {Persistence.Instance.bestScore}";
+        BestScoreText.text = $"Best Score : {Persistence.Instance.bestPlayer} : {Persistence.Instance.bestScore}";
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         const float step = 0.6f;
@@ -89,9 +84,9 @@ public class MainManager : MonoBehaviour
             Persistence.Instance.bestScore = m_Points;
             Persistence.Instance.bestPlayer = Persistence.Instance.playerName;
 
-            FindObjectOfType<Persistence>().SaveBestPlayer();
-
             DisplayBestScore();
+
+            FindObjectOfType<Persistence>().SaveBestPlayer();
         }
      }
 }
