@@ -13,10 +13,10 @@ public class MainManager : MonoBehaviour
     [SerializeField] Text ScoreText;
     [SerializeField] Text BestScoreText;
     [SerializeField] GameObject GameOverText;
-    
+
     bool m_Started = false;
     int m_Points;
-    
+
     bool m_GameOver = false;
 
     public void DisplayBestScore()
